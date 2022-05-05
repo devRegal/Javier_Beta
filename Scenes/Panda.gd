@@ -46,7 +46,7 @@ func _on_TopChecker_body_entered(body):
 	
 	if body.is_in_group("Player"):
 		
-		
+		$Sound_Death.play()
 		$AnimatedSprite.play("angry")
 		movespeed = 0
 		velocity.y = 0

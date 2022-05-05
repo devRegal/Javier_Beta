@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Animations/bear.res" type="SpriteFrames" id=2]
+[ext_resource path="res://Music/monster-4.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=43]
 extents = Vector2( 4.2374, 5.78085 )
@@ -23,6 +24,7 @@ position = Vector2( 7.0392, 4.6735 )
 scale = Vector2( 0.987807, 0.987807 )
 frames = ExtResource( 2 )
 animation = "Normal"
+frame = 3
 playing = true
 __meta__ = {
 "_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpzb3VyY2V8PQpsYXllcnw9Cm9wX2V4cHw9VHJ1ZQpvX2ZvbGRlcnw9Cm9fbmFtZXw9Cm9ubHlfdmlzaWJsZXw9RmFsc2UKb19leF9wfD0K"
@@ -51,6 +53,10 @@ shape = SubResource( 45 )
 
 [node name="Timer" type="Timer" parent="Enemy"]
 wait_time = 1.5
+
+[node name="Sound_Death" type="AudioStreamPlayer" parent="Enemy"]
+stream = ExtResource( 3 )
+volume_db = -16.0
 
 [connection signal="body_entered" from="Enemy/TopChecker" to="Enemy" method="_on_TopChecker_body_entered"]
 [connection signal="body_entered" from="Enemy/SideChecker" to="Enemy" method="_on_SideChecker_body_entered"]

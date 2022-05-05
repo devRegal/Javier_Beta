@@ -72,6 +72,7 @@ func jump_and_fall(delta):
 			vel.y += gravity * delta * fall_gravity_mult
 	if jump_timer < coyote_time and Input.is_action_just_pressed("jump"):
 		vel.y = -jump_force
+		$Sound_Jump.play(0.2)
 		
 func double_jump():
 	if is_on_floor() or is_on_wall():
@@ -80,6 +81,8 @@ func double_jump():
 		if !is_on_wall() and !is_on_floor():
 			vel.y = -jump_force
 			double_jump_available = false
+			$Sound_Double_Jump.play()
+			
 			
 func wall_jump():
 	if is_on_wall() and Input.is_action_just_pressed("jump"):
